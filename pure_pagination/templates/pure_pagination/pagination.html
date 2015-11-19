@@ -10,7 +10,11 @@
             {% ifequal page page_obj.number %}
                 <span class="current page">{{ page }}</span>
             {% else %}
+              {% if page.querystring %}
                 <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+              {% else %}
+                <a href="?page={{ page }}" class="page">{{page}}</a>
+              {% endif %}
             {% endifequal %}
         {% else %}
             ...
